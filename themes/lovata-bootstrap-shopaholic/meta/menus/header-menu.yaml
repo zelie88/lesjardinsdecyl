@@ -1,0 +1,84 @@
+name: 'Header menu'
+items:
+    -
+        title: Accueil
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: index
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Produits
+        nesting: null
+        type: header
+        url: null
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Légumes
+                nesting: 1
+                type: shop-catalog
+                url: null
+                code: ''
+                reference: null
+                cmsPage: catalog
+                replace: 1
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Jardin
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Phototèque
+                type: cms-page
+                code: ''
+                reference: phototeque
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Qui sommes-nous ?'
+                nesting: 0
+                type: static-page
+                code: ''
+                reference: qui-sommes-nous
+                replace: 0
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'Nous écrire'
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: nous-ecrire
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

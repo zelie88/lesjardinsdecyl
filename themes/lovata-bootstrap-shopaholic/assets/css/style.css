@@ -1,0 +1,115 @@
+body {
+    font-family: 'Sacramento';
+    font-size: 2rem;
+    background-color: #008037;
+}
+
+.site-content {
+    padding: 20px;
+}
+
+.card {
+    border-radius: .5rem;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+/*En-tête*/
+#bandeau {
+    text-align: center;
+}
+
+#logo {
+    height: 200px;
+}
+
+h1 {
+    font-size: 6.5rem;
+    color: white;
+    line-height: 2;
+}
+
+/*Menu*/
+#navbarSupportedContent li.nav-item:nth-child(1) a.nav-link::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f015";
+}
+
+#navbarSupportedContent li.nav-item:nth-child(1) {
+    margin-top: -5px;
+}
+
+/*Accueil, login*/
+#facebook-container {
+    overflow: scroll;
+}
+
+#facebook-content {
+    margin: auto;
+}
+
+.contenu-page {
+    justify-content: space-around;
+}
+
+.wysiwyg img {
+    max-height: 100%;
+}
+
+.carousel-indicators {
+    text-align: initial;
+}
+
+/*Formulaires*/
+input, textarea, .form-control {
+    font-size: 2rem;
+}
+button.btn {
+    font-size: 1.5rem;
+}
+
+/*Qui sommes-nous*/
+#portraits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/*Phototèque*/
+#galleryId {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*Liste légumes*/
+section.category, section.breadcrumb-list {
+    display: none;
+}
+
+/*Fiche légume*/
+.titreVert {
+    text-align: center;
+    font-size: 3rem;
+    background-color: #4dbe4a;
+}
+
+#texteLegume p {
+    text-align: justify;
+}
+
+#ajoutPanier {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/*Commande*/
+#confirmation input, #confirmation button {
+    font-size: 2rem;
+}

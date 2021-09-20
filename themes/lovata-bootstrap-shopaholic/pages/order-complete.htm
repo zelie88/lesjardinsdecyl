@@ -1,0 +1,18 @@
+title = "Order complete"
+url = "/checkout/:slug"
+layout = "content"
+is_hidden = 0
+
+[OrderPage]
+slug = ":slug"
+slug_required = 1
+==
+<section class="container h-100 d-flex justify-content-center align-items-center flex-column">
+    <p class="text-center mb-5 order-complete__text">Merci!</p>
+    {# Get order object #}
+        {% set obOrder = OrderPage.get() %}
+        <div data-id="{{ obOrder.id }}">
+            <h1>Commande numéro {{ obOrder.order_number }}</h1>
+        </div>
+    <a class="btn btn-dark btn-lg" href="{{ 'index'|page }}" role="button">Retour à l'accueil</a>
+</section>

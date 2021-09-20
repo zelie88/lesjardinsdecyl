@@ -1,0 +1,10 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - add_panier_field.php
+1.0.3:
+    - 'Created table zelie_paniers_produits'
+    - builder_table_create_zelie_paniers_produits.php
+1.0.4:
+    - 'Updated table zelie_paniers_produits'
+    - builder_table_update_zelie_paniers_produits.php

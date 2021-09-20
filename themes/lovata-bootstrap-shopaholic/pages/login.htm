@@ -1,0 +1,204 @@
+title = "Login"
+url = "/login"
+layout = "content"
+is_hidden = 0
+
+[account]
+redirect = "index"
+paramCode = "code"
+forceSecure = 0
+requirePassword = 1
+==
+{% if not user %}
+
+    <div class="row contenu-page">
+        <div class="card col-md-5">
+            <h3 class="card-title titreVert">Connexion</h3>
+            {{ form_ajax('onSignin') }}
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="userSigninLogin">Nom d'utilisateur</label>
+                    <input
+                        name="login"
+                        type="text"
+                        class="form-control"
+                        id="userSigninLogin"
+                        placeholder="Entrez votre nom d'utilisateur" />
+                </div>
+
+                <div class="form-group">
+                    <label for="userSigninPassword">Mot de passe</label>
+                    <input
+                        name="password"
+                        type="password"
+                        class="form-control"
+                        id="userSigninPassword"
+                        placeholder="Entrez votre mot de passe" />
+                </div>
+
+                {% if rememberLoginMode == 'ask' %}
+                <div class="form-group">
+                    <div class="checkbox">
+                    <label><input name="remember" type="checkbox" value="1">Rester connecté</label>
+                    </div>
+                </div>
+                {% endif %}
+
+                <button type="submit" class="btn btn-success">Connexion</button>
+            </div>
+            {{ form_close() }}
+
+        </div>
+
+        <div class="card col-md-5">
+            {% if canRegister %}
+            <h3 class="card-title titreVert">Inscription</h3>
+            {{ form_ajax('onRegister') }}
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="registerName">Nom</label>
+                    <input
+                        name="name"
+                        type="text"
+                        class="form-control"
+                        id="registerName"
+                        placeholder="Entrez votre nom" />
+                </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input
+                        name="email"
+                        type="email"
+                        class="form-control"
+                        id="registerEmail"
+                        placeholder="Entrez votre email" />
+                </div>
+
+                {% if loginAttribute == "username" %}
+                    <div class="form-group">
+                        <label for="registerUsername">Nom d'utilisateur</label>
+                        <input
+                            name="username"
+                            type="text"
+                            class="form-control"
+                            id="registerUsername"
+                            placeholder="Entrez votre nom d'utilisateur" />
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="registerPassword">Mot de passe</label>
+                    <input
+                        name="password"
+                        type="password"
+                        class="form-control"
+                        id="registerPassword"
+                        placeholder="Choisissez un mot de passe" />
+                </div>
+
+                <button type="submit" class="btn btn-success">Inscription</button>
+            </div>
+            {{ form_close() }}
+            
+        {% else %}
+            
+        {% endif %}
+        </div>
+    </div>
+
+{% else %}
+
+    <div class="card">
+    {{ form_ajax('onUpdate') }}
+        <div class="card-body">
+            <div class="form-group">
+                <label for="accountName">Nom d'utilisateur</label>
+                <input name="name" type="text" class="form-control" id="accountName" value="{{ user.name }}">
+            </div>
+
+            <div class="form-group">
+                <label for="accountEmail">Email</label>
+                <input name="email" type="email" class="form-control" id="accountEmail" value="{{ user.email }}">
+            </div>
+
+            <div class="form-group">
+                <label for="accountPassword">Nouveau mot de passe</label>
+                <input name="password" type="password" class="form-control" id="accountPassword">
+            </div>
+
+            <div class="form-group">
+                <label for="accountPasswordConfirm">Confirmer le nouveau mot de passe</label>
+                <input name="password_confirmation" type="password" class="form-control" id="accountPasswordConfirm">
+            </div>
+
+            {% if updateRequiresPassword %}
+                <p>Pour valider les changements, entrez votre mot de passe actuel</p>
+                <div class="form-group">
+                    <label for="accountPasswordCurrent">Mot de passe actuel <small class="text-danger">* obligatoire</small></label>
+                    <input name="password_current" type="password" class="form-control" id="accountPasswordCurrent">
+                </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-success">Sauvegarder</button>
+        </div>
+    {{ form_close() }}
+    </div>
+
+
+    <div class='card'>
+        {# Get OrderCollection object from user object #}
+        {% set obOrderList = user.order_list %}
+        {% if obOrderList.isNotEmpty() %}
+            <table>
+                <h3 class="card-title titreVert">Vos commandes</h3>
+            <tr>
+                <th>Numéro de commande</th>
+                <th>Statut</th>
+                <th>Prix total</th>
+            </tr>
+            {% for obOrder in obOrderList %}
+                <tr>
+                <td>{{ obOrder.order_number }}</td>
+                <td>{{ obOrder.status.name }}</td>
+                <td>{{ obOrder.total_price }} {{ obOrder.currency_symbol }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        {% else %}
+            <div>Vous n'avez pas de commande en cours</div>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <button class="btn btn-danger"
+        href="javascript:;"
+        onclick="$('#accountDeactivateForm').toggle()">
+        Désactiver le compte
+        </button>
+            <div id="accountDeactivateForm" style="display: none">
+            {{ form_ajax('onDeactivate') }}
+                <hr />
+                <h3>Voulez vous désactiver votre compte?</h3>
+                <p>
+                    Votre compte et vos données seront supprimés de notre site.
+                    Vous pouvez vous réinscrire à tout moment.
+                </p>
+                <div class="form-group">
+                    <label for="accountDeletePassword">Pour continuer, entrez votre mot de passe:</label>
+                    <input name="password" type="password" class="form-control" id="accountDeletePassword" />
+                </div>
+                <button type="submit" class="btn btn-danger">
+                    Confirmer la désactivation
+                </button>
+                <button class="btn btn-success">
+                <a
+                    href="javascript:;"
+                    onclick="$('#accountDeactivateForm').toggle()">
+                    J'ai changé d'avis
+                </a>
+            </button>
+            {{ form_close() }}
+            </div>
+    </div>
+{% endif %}

@@ -1,0 +1,35 @@
+title = "Index"
+url = "/"
+layout = "content"
+is_hidden = 0
+
+[CategoryList]
+
+[ProductList]
+sorting = "no"
+
+[FB]
+fb_app_id = "default"
+href = "default"
+width = 0
+height = 0
+lang = "default"
+adapt_container_width = 1
+show_facepile = 0
+small_header = 0
+hide_cover = 1
+hide_cta = "default"
+override_events = 1
+override_timeline = 1
+taborder = "timeline,messages,events"
+use_sdk = "default"
+==
+<div class="row contenu-page">
+    <div class="card col-lg-8">
+        {% partial 'content/carousel/carousel' arImageList=this.theme.main_slider %}
+    </div>
+    <div class="card col-lg-3" id="facebook-container">
+        {% set container = FB.container %}
+        <div id="facebook-content">{{ container.body|raw }}</div>
+    </div>
+</div>

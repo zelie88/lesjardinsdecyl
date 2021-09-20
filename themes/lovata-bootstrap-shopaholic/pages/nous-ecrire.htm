@@ -1,0 +1,47 @@
+title = "Nous écrire"
+url = "/nous-ecrire"
+layout = "content"
+is_hidden = 0
+
+[genericForm]
+messages_success = "Votre message a bien été envoyé"
+messages_errors = "Votre message n'a pas pu être envoyé"
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+==
+<form data-request="{{ genericForm }}::onFormSubmit">
+
+    {{ form_token() }}
+
+    <div id="{{ genericForm }}_forms_flash"></div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="name">Nom:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Objet:</label>
+                <input type="text" id="subject" name="subject" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <textarea id="comments" class="form-control" name="comments" rows="8" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Envoyer</button>
+        </div>
+    </div>
+</form>

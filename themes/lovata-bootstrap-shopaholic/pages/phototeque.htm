@@ -1,0 +1,28 @@
+title = "Phototèque"
+url = "/phototeque"
+layout = "lightgallery"
+is_hidden = 0
+
+[galleryId]
+idGallery = 1
+lang = "Gallery"
+jqueryinject = "yes"
+thumbnail = "true"
+caption = "true"
+desc = "true"
+counter = "true"
+controls = "true"
+preload = 1
+mode = "lg-slide"
+speed = 600
+loop = "true"
+auto = "false"
+pause = 2000
+escKey = "true"
+height = 140
+width = 200
+resizer = "auto"
+==
+<div class="mb-4">
+{% component 'galleryId' %}
+</div>

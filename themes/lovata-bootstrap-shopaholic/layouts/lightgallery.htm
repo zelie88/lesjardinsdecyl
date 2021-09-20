@@ -1,0 +1,84 @@
+[staticMenu HeaderStaticMenu]
+code = "header-menu"
+
+[staticMenu FooterStaticMenu]
+code = "footer-menu"
+
+[session]
+security = "all"
+
+[staticPage]
+useContent = 1
+default = 0
+==
+<?php
+function onInit()
+{
+    $this['path_css'] = mix('css/common.css', 'themes/'.\Cms\Classes\Theme::getActiveTheme()->getDirName().'/assets');
+    $this['path_js'] = mix('js/common.js', 'themes/'.\Cms\Classes\Theme::getActiveTheme()->getDirName().'/assets');
+    $this['cart_is_available'] = false;
+
+    /**
+     * Check if Cart component has been registered and autoload it
+     **/
+
+    $obManager = \Cms\Classes\ComponentManager::instance();
+    if ($obManager->hasComponent('Lovata\OrdersShopaholic\Components\Cart')) {
+        $this['cart_is_available'] = true;
+        $this->addComponent('Lovata\OrdersShopaholic\Components\Cart', 'Cart', []);
+    }
+
+    if ($obManager->hasComponent('Lovata\MightySeo\Components\SeoToolbox')) {
+        $this['seo_toolbox_is_available'] = true;
+        $this->addComponent('Lovata\MightySeo\Components\SeoToolbox', 'SeoToolbox', []);
+    }
+}
+?>
+==
+{% spaceless %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Les jardins de Cyl</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Des jardins naturels au coeur de la Balagne">
+    <meta name="title" content="Les jardins de Cyl">
+    <meta name="author" content="Cyl">
+    <meta name="generator" content="Winter CMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{{ 'assets/images/logopng.png'|theme }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ 'assets/css/common.css'|theme }}">
+    {% styles %}
+    <link rel="stylesheet" href="{{ 'assets/css/style.css'|theme }}">
+    
+    {% if seo_toolbox_is_available %}
+        {% placeholder seo_tags default %}
+            {% component 'SeoToolbox' %}
+        {% endplaceholder %}
+    {% endif %}
+</head>
+
+<body class="body" data-cart-is-available="{{ cart_is_available }}">
+    <div id ="bandeau">
+        <h1>Les jardins de <img id="logo" src="{{ 'assets/images/logo3.png'|theme }}"/></h1>
+    </div>
+    {% partial 'header/header2' %}
+    <div class="site-content">
+        <div class="container-fluid">
+            {% page %}
+        </div>
+    </div>
+    {% partial 'footer/footer2' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    {% scripts %}
+    <script src="{{ path_js }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.3.2/js/lightgallery.js"></script>
+    {% framework extras %}
+</body>
+</html>
+{% endspaceless %}

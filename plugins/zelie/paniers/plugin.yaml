@@ -1,0 +1,6 @@
+plugin:
+    name: 'zelie.paniers::lang.plugin.name'
+    description: 'zelie.paniers::lang.plugin.description'
+    author: Zélie
+    icon: oc-icon-briefcase
+    homepage: ''
