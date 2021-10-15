@@ -35,7 +35,7 @@ class ExtendProductItem
                     'class' => BrandItem::class,
                     'field' => 'brand_id',
                 ],
-                'panier'               => [
+                'produits'               => [
                     'class' => ProductItem::class,
                     'field' => 'id',
                 ]

@@ -56,6 +56,10 @@ last_button_name = "Last"
 last_button_limit = 3
 
 [ProductData]
+
+[produits]
+panierId = {{ panierId }}
+
 ==
 <?php
 function onInit() {
@@ -92,6 +96,7 @@ function onInit() {
     $this['obBrand'] = $obBrandItem;
     $this['obActiveCategory'] = $obActiveCategoryItem;
     $this['arBreadcrumbs'] = $arBreadcrumbs;
+    
 }
 ?>
 ==
@@ -109,12 +114,9 @@ function onInit() {
 
 {% if obProduct.isNotEmpty() %}
     {% partial 'navigation/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
-    {% partial 'produit-seul' %}
-    {% else %}
-        {% partial 'content/picture-preview-top/picture-preview-top' obImage=obActiveCategory.preview_image %}
+    {% partial 'produit-seul' panierId = obProduct.id %}
+{% else %}
         {% partial 'product/catalog-panel/catalog-panel' obActiveCategory=obActiveCategory label='produits-liste' %}
         {% partial 'navigation/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
-        {% partial 'content/text-preview/text-preview' sPreviewText=obActiveCategory.preview_text %}
         {% partial 'produits-liste' %}
-        {% partial 'content/wysiwyg/wysiwyg' sContent=obActiveCategory.description %}
 {% endif %}

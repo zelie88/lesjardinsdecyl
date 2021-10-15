@@ -1,3 +1,8 @@
+[produits]
+panierId = {{ panierId }}
+
+[viewBag]
+==
 {# @var obProduct \Lovata\Shopaholic\Classes\Item\ProductItem #}
 {# @var obOffer \Lovata\Shopaholic\Classes\Item\OfferItem #}
 
@@ -7,16 +12,9 @@
     <div class="card-body" id="texteLegume">
         <img src="{{ obProduct.preview_image.getThumb(200, 200, {'quality': 80}) }}" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}" loading="lazy">
         <p>{{ obProduct.description|raw }}</p>
-        {{ dump() }}
-   
-        {% if obProduct.product is not empty %}
-                    {% for product in obProduct.product %}
-                        <li>bou</li>
-                    {% endfor %}
-                    {% else %}
-                        <li>{{ obProduct.name }}</li>
-        {% endif %}
         
+        {% component 'produits' panierId = obProduct.id  %}
+
         {% if obOffer.quantity > 0 %}
         <div id="ajoutPanier" class="product-card__price-bar d-flex align-items-center">
             <span class="product-card__current-price pr-2 font-weight-bold text-danger">

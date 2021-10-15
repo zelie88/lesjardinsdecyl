@@ -1,0 +1,9 @@
+{% set produits = produits.loadProduits %}
+{% if produits.count() > 0 %}
+<h2>Ce panier contient :</h2>
+<ul>
+    {% for produit in produits %}
+    <li><a href="/legumes/{{ produit.slug }}">{{ produit.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}

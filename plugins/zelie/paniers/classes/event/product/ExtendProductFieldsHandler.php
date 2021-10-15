@@ -22,8 +22,6 @@ class ExtendProductFieldsHandler extends AbstractBackendFieldHandler
                 'label'   => 'Produits',
                 'tab'     => 'Produits',
                 'type'    => 'relation',
-                'pivot' => 'zelie_paniers_produits',
-                'attributes' => 'multiple: true'
             ],
         ];
 
