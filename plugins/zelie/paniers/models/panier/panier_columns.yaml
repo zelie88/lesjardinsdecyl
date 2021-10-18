@@ -1,6 +1,0 @@
-columns:
-    panier:
-        label: 'Produits'
-        type: text
-        relation: panier
-        select: zelie_paniers_produits
