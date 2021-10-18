@@ -1,0 +1,6 @@
+plugin:
+    name: 'zelie.menus::lang.plugin.name'
+    description: 'zelie.menus::lang.plugin.description'
+    author: Zélie
+    icon: oc-icon-align-justify
+    homepage: ''
