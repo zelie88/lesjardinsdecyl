@@ -30,7 +30,7 @@ export default new class ButtonAddToCart {
       data: {'cart': cartData},
       success: function (response) {
         if (!!response && response.status) {
-          button.attr('data-content', 'Item added to cart');
+          button.attr('data-content', 'Ajouté au panier!');
           CartLinkHeader.updateBlock();
         } else {
           button.attr('data-content', response.message);
