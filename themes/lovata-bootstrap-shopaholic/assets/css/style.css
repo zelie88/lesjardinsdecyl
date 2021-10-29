@@ -44,9 +44,13 @@ h1 {
     margin-top: -5px;
 }
 
+.dropdown-item {
+    font-size: 1.5rem;
+}
+
 /*Accueil, login*/
 #facebook-container {
-    overflow: scroll;
+    overflow-x: scroll;
 }
 
 #facebook-content {
@@ -61,8 +65,10 @@ h1 {
     max-height: 100%;
 }
 
-.carousel-indicators {
-    text-align: initial;
+.carousel-indicators li {
+    background-color: #343a40;
+    height: 30px;
+    border-radius: 50%;
 }
 
 /*Formulaires*/
@@ -104,12 +110,42 @@ section.category, section.breadcrumb-list {
     text-align: justify;
 }
 
-#ajoutPanier {
+.product-card__price-bar {
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 /*Commande*/
 #confirmation input, #confirmation button {
     font-size: 2rem;
+}
+
+.input-group {
+    flex-wrap:nowrap;
+}
+
+@media (max-width: 480px) {
+    .table-responsive {
+        overflow-x: hidden;
+    }
+	.table > tbody > tr td {
+		display: inline-block;
+        width: 100%;
+        height:auto;
+	}
+    .table > tbody > tr td input {
+		width: 100%;
+	}
+    .input-group {
+        width:80%;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        }
+    #facebook-container {
+        overflow-x: scroll;
+        padding: 0px;
+    }
 }

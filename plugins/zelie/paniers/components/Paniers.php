@@ -27,13 +27,11 @@ class Paniers extends ComponentBase
     }
     
     public function loadProduits() {
-
         $produits = Db::table('lovata_shopaholic_products')
             ->join('zelie_paniers_produits', 'id', '=', 'product_id')
             ->where('panier_id', '=', $this->property('panierId'))
             ->orderBy('name')
             ->get();
-
         return $produits;
     }
 

@@ -2,13 +2,9 @@ name: 'Header menu'
 items:
     -
         title: Accueil
-        nesting: null
         type: cms-page
-        url: null
         code: ''
         reference: index
-        cmsPage: null
-        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -42,8 +38,13 @@ items:
                     isExternal: '0'
     -
         title: Jardin
+        nesting: null
         type: header
+        url: null
         code: ''
+        reference: null
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -51,9 +52,13 @@ items:
         items:
             -
                 title: Phototèque
+                nesting: null
                 type: cms-page
+                url: null
                 code: ''
                 reference: phototeque
+                cmsPage: null
+                replace: null
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
@@ -62,8 +67,10 @@ items:
                 title: 'Qui sommes-nous ?'
                 nesting: 0
                 type: static-page
+                url: null
                 code: ''
                 reference: qui-sommes-nous
+                cmsPage: null
                 replace: 0
                 viewBag:
                     isHidden: '0'

@@ -13,7 +13,7 @@
                             <a class="nav-link dropdown-toggle {{ obMenuItem.viewBag.cssClass }} {% if obMenuItem.isActive or obMenuItem.isChildActive %}active{% endif %}" href="{{ obMenuItem.url }}" id="navbarDropdown-{{ loop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ obMenuItem.title }}
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ loop.index }}">
+                            <div class="dropdown-menu">
                                 {% for obChildMenuItem in obMenuItem.items %}
                                     {% if obChildMenu.viewBag.isHidden == false %}
                                         <a class="dropdown-item {{ obChildMenuItem.viewBag.cssClass }} {% if obChildMenuItem.isActive %}active{% endif %}" href="{{ obChildMenuItem.url }}">
@@ -37,7 +37,7 @@
                     <a class="nav-link dropdown-toggle {{ obMenuItem.viewBag.cssClass }} {% if obMenuItem.isActive or obMenuItem.isChildActive %}active{% endif %}" href="{{ obMenuItem.url }}" id="navbarDropdown-{{ loop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user"></i>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu">
                         <a class="dropdown-item {% if this.page.id == 'login' %} active {% endif %}" href="{{ 'login'|page }}">
                             {% if not user %}
                                 Connexion

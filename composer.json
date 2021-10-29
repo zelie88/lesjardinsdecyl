@@ -82,6 +82,11 @@
             "recurse": true,
             "replace": false,
             "merge-dev": false
+        },
+        "laravel": {
+            "dont-discover": [
+              "itsgoingd/clockwork"
+            ]
         }
     }
 }
