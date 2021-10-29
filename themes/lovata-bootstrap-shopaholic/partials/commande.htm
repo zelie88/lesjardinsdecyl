@@ -4,6 +4,7 @@
 {# @var obOffer \Lovata\Shopaholic\Classes\Item\OfferItem #}
 {# @var obProduct \Lovata\Shopaholic\Classes\Item\ProductItem #}
 
+<div class="card">
 <section class="cart">
     {% if obCartPositionList.isNotEmpty() %}
     <h2 class="cart__table-title mt-4 mb-4 text-center titreVert">Votre commande</h2>
@@ -37,20 +38,12 @@
                         <a class="cart__product-name font-weight-bold d-block mb-2" href="{{ obProduct.getPageUrl('catalog') }}">
                             {{ obProduct.name }}
                         </a>
-                        <a href="{{ obProduct.category.getPageUrl('catalog') }}" class="cart__category-product-column text-dark">
-                            {{ obProduct.category.name }}
-                        </a>
                     </td>
                     <td class="cart__price align-middle">
                         <div class="cart__price-bar d-flex flex-column">
                             <span class="cart__current-price pr-2 font-weight-bold {{ obOffer.old_price_value > 0 ? 'text-danger' : '' }} d-block mb-1">
                                 {{ obOffer.price }}  {{ obOffer.currency }}
                             </span>
-                            {% if obOffer.old_price_value > 0 %}
-                            <span class="cart__old-price text-muted pr-2">
-                                <s>{{ obOffer.old_price }} {{ obOffer.currency }}</s>
-                            </span>
-                            {% endif %}
                         </div>
                     </td>
                     <td class="cart__qty align-middle">
@@ -58,9 +51,6 @@
                     </td>
                     <td class="cart__total-price align-middle">
                         <span class="cart__total-price-figures cart__position-price-value">{{ obCartPosition.price }}</span> {{ obCartPosition.currency }}
-                        <span class="text-muted cart__position-old-price-figures {% if obCartPosition.discount_price_value == 0 %}d-none{% endif %}">
-                            <span class="cart__position-old-price-value">{{ obCartPosition.old_price }}</span> {{ obCartPosition.currency }}
-                        </span>
                     </td>
                     <td class="cart__delete-position align-middle">
                         <button class="btn btn-outline-secondary btn_bg-white cart__delete-btn" aria-label="Delete" data-id="{{ obOffer.id }}">
@@ -75,11 +65,7 @@
     <div class="cart__total mb-5">
         <div class="cart__total-price row mb-3 pt-3">
             <span class="cart__total-price-title col-6 col-lg-4 font-weight-bold">Total de la commande:</span>
-            <span class="cart__total-price-old-price col-3 col-lg-2 text-right text-muted">
-                <span class="cart__total-price-old-price-value {% if Cart.getDiscountTotalPriceValue() == 0 %}d-none{% endif %}">{{ Cart.getOldTotalPrice() }}</span>
-                <span class="cart__total-price-old-price-currency {% if Cart.getDiscountTotalPriceValue() == 0 %}d-none{% endif %}">{{ Cart.getCurrency() }}</span>
-            </span>
-            <span class="cart__total-price-current-price col-3 col-lg-2 text-right">
+            <span class="cart__total-price-current-price col-6 col-lg-2 text-right">
                 <span class="cart__total-price-price-value">{{ Cart.getTotalPrice() }}</span>
                 <span class="cart__total-price-price-currency">{{ Cart.getCurrency() }}</span>
             </span>
@@ -88,3 +74,4 @@
     {% endif %}
     <h2 class="cart__empty container mt-4 mb-4 text-center {% if obCartPositionList.isNotEmpty() %}d-none{% endif %}">Votre panier est vide</h2>
 </section>
+</div>
