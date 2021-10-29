@@ -27,6 +27,17 @@ If you plan on using a database, run this command inside the application directo
 ```shell
 php artisan winter:install
 ```
+## Required plugins for Les Jardins de Cyl
+
+- <a href="https://octobercms.com/plugin/rainlab-pages">Rainlab Static Pages</a>
+- <a href="https://octobercms.com/plugin/rainlab-user">Rainlab User</a>
+- <a href="https://octobercms.com/plugin/rainlab-builder">Rainlab Builder</a>
+- <a href="https://octobercms.com/plugin/lovata-toolbox">Lovata Toolbox</a>
+- <a href="https://octobercms.com/plugin/lovata-shopaholic">Lovata Shopaholic</a>
+- <a href="https://octobercms.com/plugin/lovata-ordersshopaholic">Lovata Orders for Shopaholic</a>
+- <a href="https://octobercms.com/plugin/digitreadmedia-facebookpageplugin">OC Facebook Page Container</a>
+- <a href="https://octobercms.com/plugin/martin-forms">Magic Forms</a>
+- <a href="https://octobercms.com/plugin/raviraj-rjgallery">RJ Gallery</a>
 
 ## Learning Winter
 
@@ -83,3 +94,4 @@ The Winter CMS platform is open-sourced software licensed under the [MIT license
 ## Security Vulnerabilities
 
 Please review [our security policy](https://github.com/wintercms/winter/security/policy) on how to report security vulnerabilities.
+
