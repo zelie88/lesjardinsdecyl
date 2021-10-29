@@ -96,8 +96,8 @@
             $tabs = implode("%2C%20",$this->tabs);
             $html = '<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F'.$this->pageName.'%2F&tabs='.$tabs.'&width='.$this->width;
             $html .= '&height='.$this->height.'&small_header='.$this->small_header.'&adapt_container_width='.$this->adapt_container_width.'&hide_cover='.$this->hide_cover;
-            $html .= '&show_facepile='.$this->show_facepile.'&data-hide-cta='.$this->hide_cta.'&appId='.$this->fb_app_id.'" width="'.$this->width.'" height="'.$this->height.'"';
-            $html .= 'style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>';
+            $html .= '&show_facepile='.$this->show_facepile.'&data-hide-cta='.$this->hide_cta.'&appId='.$this->fb_app_id.'" width="'.$this->width.'" height="'.$this->height.'" ';
+            $html .= 'style="border:none;overflow:hidden" allow="encrypted-media"></iframe>';
             return $html;
         }
         
