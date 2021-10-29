@@ -6,13 +6,15 @@ is_hidden = 0
 [genericForm]
 messages_success = "Votre message a bien été envoyé"
 messages_errors = "Votre message n'a pas pu être envoyé"
+mail_enabled = 1
+reset_form = 1
 inline_errors = "disabled"
 sanitize_data = "disabled"
 anonymize_ip = "disabled"
 recaptcha_theme = "light"
 recaptcha_type = "image"
 recaptcha_size = "normal"
-emails_date_format = "Y-m-d"
+emails_date_format = "d-m-Y"
 ==
 <form data-request="{{ genericForm }}::onFormSubmit">
 

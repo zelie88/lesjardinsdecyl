@@ -17,12 +17,6 @@ smart_url_check = 1
 has_wildcard = 0
 skip_error = 1
 
-[BrandPage]
-slug = "{{ :slug }}"
-slug_required = 0
-smart_url_check = 0
-skip_error = 1
-
 [ProductPage]
 slug = "{{ :slug }}"
 slug_required = 0
@@ -58,8 +52,13 @@ last_button_limit = 3
 [ProductData]
 
 [produits]
-panierId = {{ panierId }}
+panierId = "{{ panierId }}"
 
+[BrandPage]
+slug = "{{ :slug }}"
+slug_required = 0
+smart_url_check = 0
+skip_error = 1
 ==
 <?php
 function onInit() {
@@ -116,7 +115,7 @@ function onInit() {
     {% partial 'navigation/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
     {% partial 'produit-seul' panierId = obProduct.id %}
 {% else %}
-        {% partial 'product/catalog-panel/catalog-panel' obActiveCategory=obActiveCategory label='produits-liste' %}
-        {% partial 'navigation/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
-        {% partial 'produits-liste' %}
+    {% partial 'product/catalog-panel/catalog-panel' obActiveCategory=obActiveCategory label='produits-liste' %}
+    {% partial 'navigation/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+    {% partial 'produits-liste' %}
 {% endif %}

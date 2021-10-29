@@ -4,15 +4,14 @@ layout = "content"
 is_hidden = 0
 
 [OrderPage]
-slug = ":slug"
-slug_required = 1
+slug = "{{ :slug }}"
+slug_required = 0
 ==
-<section class="container h-100 d-flex justify-content-center align-items-center flex-column">
-    <p class="text-center mb-5 order-complete__text">Merci!</p>
-    {# Get order object #}
-        {% set obOrder = OrderPage.get() %}
+{% set obOrder = OrderPage.get() %}
+<section class="card container h-100 d-flex justify-content-center align-items-center flex-column">
+    <h2 class="text-center order-complete__text">Merci!</h2>
         <div data-id="{{ obOrder.id }}">
-            <h1>Commande numéro {{ obOrder.order_number }}</h1>
+            <div class="card-body">Votre commande numéro {{ obOrder.order_number }} pour un total de {{ obOrder.total_price }}{{ obOrder.currency_symbol }} a bien été prise en compte</div>
         </div>
     <a class="btn btn-dark btn-lg" href="{{ 'index'|page }}" role="button">Retour à l'accueil</a>
 </section>
