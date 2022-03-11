@@ -37,33 +37,6 @@ tabs:
             descriptionFrom: description
             type: relation
             tab: 'lovata.ordersshopaholic::lang.tab.info'
-        payment_method:
-            label: 'lovata.ordersshopaholic::lang.field.payment_method'
-            span: left
-            nameFrom: name
-            descriptionFrom: description
-            emptyOption: 'lovata.toolbox::lang.field.empty'
-            type: relation
-            tab: 'lovata.ordersshopaholic::lang.tab.info'
-        shipping_type:
-            label: 'lovata.ordersshopaholic::lang.field.shipping_type'
-            span: left
-            nameFrom: name
-            descriptionFrom: description
-            emptyOption: 'lovata.toolbox::lang.field.empty'
-            type: relation
-            tab: 'lovata.ordersshopaholic::lang.tab.info'
-        full_shipping_price:
-            label: 'lovata.ordersshopaholic::lang.field.shipping_price'
-            span: left
-            type: text
-            tab: 'lovata.ordersshopaholic::lang.tab.info'
-        manager_id:
-            label: 'lovata.ordersshopaholic::lang.field.manager'
-            emptyOption: 'lovata.toolbox::lang.field.empty'
-            span: left
-            type: dropdown
-            tab: 'lovata.ordersshopaholic::lang.tab.info'
         order_offer:
             span: full
             path: $/lovata/ordersshopaholic/controllers/orders/_order_offer.htm
@@ -80,24 +53,6 @@ tabs:
             - preview
             type: partial
             tab: 'lovata.ordersshopaholic::lang.field.user'
-        active_task:
-            label: 'lovata.ordersshopaholic::lang.field.active_task'
-            span: full
-            path: $/lovata/ordersshopaholic/controllers/orders/_active_task.htm
-            context:
-            - update
-            - preview
-            type: partial
-            tab: 'lovata.ordersshopaholic::lang.tab.tasks'
-        completed_task:
-            label: 'lovata.ordersshopaholic::lang.field.completed_task'
-            span: full
-            path: $/lovata/ordersshopaholic/controllers/orders/_completed_task.htm
-            context:
-            - update
-            - preview
-            type: partial
-            tab: 'lovata.ordersshopaholic::lang.tab.tasks'
         payment_data_json:
             label: 'lovata.ordersshopaholic::lang.field.payment_data'
             span: left

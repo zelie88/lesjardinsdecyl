@@ -7,7 +7,7 @@ fields:
     name:
         label: 'lovata.toolbox::lang.field.name'
         span: left
-        required: 1
+        required: 0
         type: text
 tabs:
     fields:
@@ -16,16 +16,6 @@ tabs:
             span: left
             type: number
             default: 0
-            tab: 'lovata.toolbox::lang.tab.settings'
-        code:
-            label: 'lovata.shopaholic::lang.field.vendor_code'
-            span: left
-            type: text
-            tab: 'lovata.toolbox::lang.tab.settings'
-        external_id:
-            label: 'lovata.toolbox::lang.field.external_id'
-            span: left
-            type: text
             tab: 'lovata.toolbox::lang.tab.settings'
         price_list:
             span: left

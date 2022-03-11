@@ -33,12 +33,6 @@ class ExtendProductModel
                     Category::class,
                     'table' => 'lovata_shopaholic_additional_categories',
                 ],
-                /* 'produits' => [
-                    Product::class,
-                    'table' => 'zelie_paniers_produits',
-                    'key' => 'product_id',
-                    'otherKey' => 'panier_id',
-                ], */
                 'panier'   => [
                     Product::class,
                     'table' => 'zelie_paniers_produits',

@@ -41,6 +41,7 @@ class Plugin extends PluginBase
 
             $manager->addMainMenuItems('Lovata.Shopaholic', [
                 'shopaholic-menu-main' => [
+                    'label' => 'Catalogue',
                     'icon' => 'icon-book'
                 ]
             ]);

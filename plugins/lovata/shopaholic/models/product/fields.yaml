@@ -26,31 +26,6 @@ tabs:
             span: left
             type: relation
             tab: 'lovata.toolbox::lang.tab.settings'
-        additional_category:
-            label: 'lovata.shopaholic::lang.field.additional_category'
-            type: relation
-            span: right
-            nameFrom: name
-            context:
-                - update
-                - preview
-            tab: 'lovata.toolbox::lang.tab.settings'
-        brand:
-            label: 'lovata.shopaholic::lang.field.brand'
-            span: left
-            type: relation
-            tab: 'lovata.toolbox::lang.tab.settings'
-            emptyOption: 'lovata.toolbox::lang.field.empty'
-        code:
-            label: 'lovata.shopaholic::lang.field.vendor_code'
-            span: left
-            type: text
-            tab: 'lovata.toolbox::lang.tab.settings'
-        external_id:
-            label: 'lovata.toolbox::lang.field.external_id'
-            span: left
-            type: text
-            tab: 'lovata.toolbox::lang.tab.settings'
         preview_text:
             label: 'lovata.toolbox::lang.field.preview_text'
             size: large
